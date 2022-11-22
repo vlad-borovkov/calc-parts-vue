@@ -1,30 +1,34 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <div class="page">
+    <MainTable @sumOfAllBodyParts="sumOfAllBodyParts" />
+    <AmmountPrice :sumValue="sumBodyPartValue" />
+  </div>
 </template>
 
+<script>
+// импортируем фалы компонентов
+import MainTable from './components/MainTable/MainTable.vue';
+import AmmountPrice from './components/AmmountPrice/AmmountPrice.vue';
+
+export default {
+  // регистрируем импортированные компоненты
+  components: { MainTable, AmmountPrice },
+  data() {
+    return {
+      sumBodyPartValue: {
+        sumValue: '',
+      },
+    };
+  },
+  methods: {
+    sumOfAllBodyParts(sumValue) {
+      this.sumBodyPartValue.sumValue = sumValue;
+    },
+  },
+};
+</script>
+
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
+/* можно добавить scoped */
+/* флаг scoped говорит о том, что файл стилей будет доступен только для этого компонента и не доступен другим извне */
 </style>
