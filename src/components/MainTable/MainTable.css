@@ -13,3 +13,27 @@
 }
 
 .maintable__header-item {}
+
+.main-table__ammount {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.ammount-title {
+    margin: 0;
+    font-family: 'Inter';
+    font-size: 30px;
+
+}
+
+.ammount-value {
+    margin: 0;
+    font-family: 'Inter';
+    font-size: 23px;
+    font-weight: 800;
+    border: none;
+    text-align: right;
+    height: 54px;
+
+}

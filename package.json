@@ -8,7 +8,13 @@
   },
   "dependencies": {
     "core-js": "^3.8.3",
+    "html2canvas": "^1.4.1",
+    "html2pdf.js": "^0.10.1",
+    "jspdf": "^2.5.1",
+    "jspdf-html2canvas": "^1.4.9",
+    "v-money3": "^3.22.2",
     "vue": "^3.2.13",
+    "vue-money-mask": "^0.8.1",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
   },

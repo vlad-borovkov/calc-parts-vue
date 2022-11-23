@@ -26,7 +26,7 @@
         type="number"
         class="single-part__count"
         placeholder="Шт"
-        min="0"
+        min="1"
         v-model="singlePart.singlePartCount"
         @input="handleEditSinglePartCount"
       />
@@ -39,8 +39,8 @@
         placeholder="Итого"
         v-model="singlePart.singlePartTotalPrice"
         readOnly
-        cols="{10}"
-        rows="{1}"
+        cols="10"
+        rows="1"
       ></textarea>
     </div>
 

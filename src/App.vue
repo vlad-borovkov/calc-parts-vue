@@ -1,18 +1,17 @@
 <template>
   <div class="page">
-    <MainTable @sumOfAllBodyParts="sumOfAllBodyParts" />
-    <AmmountPrice :sumValue="sumBodyPartValue" />
+    <MainTable @makePdf="makePDF" />
   </div>
 </template>
 
 <script>
 // импортируем фалы компонентов
 import MainTable from './components/MainTable/MainTable.vue';
-import AmmountPrice from './components/AmmountPrice/AmmountPrice.vue';
+import html2PDF from 'jspdf-html2canvas';
 
 export default {
   // регистрируем импортированные компоненты
-  components: { MainTable, AmmountPrice },
+  components: { MainTable },
   data() {
     return {
       sumBodyPartValue: {
@@ -21,14 +20,20 @@ export default {
     };
   },
   methods: {
-    sumOfAllBodyParts(sumValue) {
-      this.sumBodyPartValue.sumValue = sumValue;
+    makePDF() {
+      let page = document.getElementsByClassName('main-table');
+
+      html2PDF(page, {
+        jsPDF: {
+          format: 'a4',
+        },
+        margin: { left: 10, right: 10, top: 10, bottom: 10 },
+        imageType: 'image/jpeg',
+        output: './pdf/generate.pdf',
+      });
     },
   },
 };
 </script>
 
-<style>
-/* можно добавить scoped */
-/* флаг scoped говорит о том, что файл стилей будет доступен только для этого компонента и не доступен другим извне */
-</style>
+<style></style>

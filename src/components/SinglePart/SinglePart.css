@@ -3,6 +3,7 @@
     flex-direction: column;
     margin: 0;
     padding: 0;
+    list-style-type: decimal;
 }
 
 .single-part__item {
@@ -12,6 +13,7 @@
     margin: 6px;
     flex-direction: row;
     align-items: flex-end;
+    list-style-type: decimal;
 }
 
 .single-part__input-wrap {
@@ -21,11 +23,9 @@
 
 .single-part__field {
     display: flex;
-    justify-content: center;
+    justify-content: right;
     font-family: 'Inter';
     font-size: 20px;
-    padding: 10px;
-    margin: 10px;
 }
 
 .single-part__name {

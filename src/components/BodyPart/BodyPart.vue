@@ -34,7 +34,7 @@
         <input
           type="number"
           class="body-part__count"
-          min="0"
+          min="1"
           v-model="bodyPart.bodyPartCount"
           @input="handleEditBodyPartCount"
         />
@@ -54,8 +54,12 @@
 
       <div class="body-part__actions">
         <p class="body-part__header-item">Действия</p>
-        <button @click="handleDeleteBodyPart">Удалить деталь</button>
-        <button @click="handleAddSinglePart">Добавить запчасть</button>
+        <button @click="handleDeleteBodyPart" class="body-part_btn">
+          Удалить деталь
+        </button>
+        <button @click="handleAddSinglePart" class="body-part_btn">
+          Добавить запчасть
+        </button>
       </div>
     </div>
     <!-- условный рендерринг группы элементов -->
@@ -151,7 +155,18 @@ export default {
       this.$emit('priceChange', this.bodyPart.id);
     },
     handleEditBodyPartCount(e) {
-      this.$emit('countChange', this.bodyPart.id);
+      const sumOfAllParts = this.partsArray.reduce(
+        (a, b) => a + b.singlePartTotalPrice,
+        0
+      );
+      // передаём сумму всех ЗАПЧАСТЕЙ внутри ЧАСТИ кузова
+
+      this.$emit(
+        'countChange',
+        this.bodyPart.id,
+        this.partsArray.length,
+        sumOfAllParts
+      );
     },
   },
 };

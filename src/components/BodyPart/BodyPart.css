@@ -71,3 +71,7 @@
     flex-direction: column;
     align-items: flex-end;
 }
+
+.body-part_btn {
+    border: 1px solid teal;
+}
